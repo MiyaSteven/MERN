@@ -1,4 +1,8 @@
-/ parent Vehicle class prt2
+'use strict';
+
+
+
+// parent Vehicle class prt2
 // class Vehicle {
 //     constructor(manufacturer, model, color) {
 //         this.manufacturer = manufacturer;
