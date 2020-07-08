@@ -1,39 +1,28 @@
 'use strict';
 
-const user1 = {
-    name: "Kermit",
-    email: "kermit@sesame.org"
-}
-
-const user1 = {
-    name: "Kermit",
-    email: "kermit@sesame.org",
-    friend: {
-        name: "Miss Piggy",
-        email: "piggy@sesame.org"
-    }
-}
-
-// rewrite of parent Vehicle class prt1
 class Ninja {
-    constructor(name) {
+    constructor(name, health=100, speed=3, strength=3) {
         this.name = name;
-        this.health = 100;
-        this.speed = 3;
-        this.strength = 3;
+        this.health = health;
+        this.speed = speed;
+        this.strength = strength;
     }
     sayName() {
-        console.log(`This Ninja's name is ${this.constructor.name}`);
+        console.log(`This Ninja's name is ${this.name}`);
     }
     showStats() {
-        return this.constructor.health + " " + this.constructor.speed + " " + this.constructor.strength;
+        return this.health + " " + this.speed + " " + this.strength;
     }
     drinkSake() {
         return this.health += 10;
     }
 }
 
-// parent Vehicle class prt2
+const ninja1 = new Ninja("Hyabusa");
+ninja1.sayName();
+ninja1.showStats();
+
+// // parent Vehicle class prt2
 // class Vehicle {
 //     constructor(manufacturer, model, color) {
 //         this.manufacturer = manufacturer;
@@ -51,6 +40,27 @@ class Ninja {
 //     }
 // }
 // // child M5 class
+
+// rewrite of M5 extends Vehicle
+class Sensei extends Ninja {
+    constructor(name="SuperNinja", health=200, speed=10, strength=10, wisdom=10) {
+        super(name, health, speed, strength, wisdom);
+    }
+    // child class functions
+    speakWisdom() {
+        return wisdom;
+    }
+    drinkSake() {
+        return health;
+    }
+}
+// example output
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+// -> "What one programmer can do in one month, two programmers can do in two months."
+superSensei.showStats();
+// -> "Name: Master Splinter, Health: 210, Speed: 10, Strength: 10"
+
 // class M5 extends Vehicle {
 //     constructor(color) {
 //         super("BMW", "M5", color);
@@ -80,4 +90,3 @@ class Ninja {
 //         this.strength += 10;
 //     }
 // }
-
