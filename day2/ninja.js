@@ -74,19 +74,3 @@ superSensei.showStats();
 // }
 // const m5 = new M5("Blue");
 // m5.childFunction();
-
-
-// const Player {
-//     constructor() {
-//         this.name = name;
-//         this.health = 0;
-//         this.speed = 0;
-//         this.strength = 0;
-//     }
-
-//     birthPlayer() {
-//         this.health += 100;
-//         this.speed += 20;
-//         this.strength += 10;
-//     }
-// }
