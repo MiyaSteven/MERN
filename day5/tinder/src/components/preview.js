@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 const PlayerCard = (props) => {
-  const [likeCount, setLikeCount] = useState(props.likeCount);
+  const [pointCount, setPointCount] = useState(props.pointCount);
 
   const styles = {
     profilePic: {
       borderRadius: 20,
-      width: 300 + likeCount * 10,
-      height: 300 + likeCount * 10,
+      width: 200 + pointCount * 10,
+      height: 200 + pointCount * 10,
     },
-    thumbsUpIcon: {
+    basketballIcon: {
       fontSize: 30,
       cursor: "pointer",
     },
@@ -21,8 +21,9 @@ const PlayerCard = (props) => {
   return (
     <div>
       <h2>
-        First Name: {props.firstName} Last Name: {props.lastName}
-        {likeCount >= 10 ? (
+        <h3>First Name: {props.firstName}</h3>
+        <h3>Last Name: {props.lastName}</h3>
+        {pointCount >= 10 ? (
           <span role="img" aria-label="fire / hot">
             🔥
           </span>
@@ -34,16 +35,16 @@ const PlayerCard = (props) => {
       <p>
         <span
           onClick={(event) => {
-            setLikeCount(likeCount + 1);
+            setPointCount(pointCount + 1);
           }}
-          style={styles.thumbsUpIcon}
+          style={styles.basketballIcon}
           role="img"
           aria-label="thumbs up"
         >
-          &#128077;
+          🏀
         </span>{" "}
         {/* because we are looping based on a count, not an array, but .map needs to use an array, we either have to write a helper function with a for loop inside that pushes JSX into an array and returns the array, or we create a new array with any item in it repeated however many times we want to loop: */}
-        {new Array(likeCount).fill(1).map((irrelevantItem, idx) => {
+        {new Array(pointCount).fill(1).map((irrelevantItem, idx) => {
           return (
             <span key={idx} style={styles.heart} role="img" aria-label="heart">
               &#10084;
@@ -52,7 +53,7 @@ const PlayerCard = (props) => {
         })}
       </p>
       <p>Age: {props.age}</p>
-      <p>{props.bio}</p>
+      <p>Bio: {props.bio}</p>
     </div>
   );
 };
