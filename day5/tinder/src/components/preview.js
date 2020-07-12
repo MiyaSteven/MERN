@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ProfilePreview = (props) => {
+const PlayerCard = (props) => {
   const [likeCount, setLikeCount] = useState(props.likeCount);
 
   const styles = {
@@ -21,7 +21,7 @@ const ProfilePreview = (props) => {
   return (
     <div>
       <h2>
-        Username: {props.username}{" "}
+        First Name: {props.firstName} Last Name: {props.lastName}
         {likeCount >= 10 ? (
           <span role="img" aria-label="fire / hot">
             🔥
@@ -51,9 +51,10 @@ const ProfilePreview = (props) => {
           );
         })}
       </p>
+      <p>Age: {props.age}</p>
       <p>{props.bio}</p>
     </div>
   );
 };
 
-export default ProfilePreview;
+export default PlayerCard;
