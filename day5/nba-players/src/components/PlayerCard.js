@@ -8,7 +8,6 @@ const PlayerCard = (props) => {
     ageCount: 31,
   });
   const ageHandler = (e) => {
-    console.log(age);
     setAge({
       ageCount: age.ageCount + 1,
     });
@@ -49,7 +48,7 @@ const PlayerCard = (props) => {
         <input value={lastName} onChange={handleLastNameChange} />
       </Row>
       <Row label="Age">
-        <input value={age} />
+        <input value={age.ageCount} />
       </Row>
       <Row label="Position">
         <input value={position} onChange={handlePositionChange} />
