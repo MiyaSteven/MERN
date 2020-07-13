@@ -1,8 +1,28 @@
 import React, { useState } from "react";
 import { Row } from "reactstrap";
 
+// Mock API Response for playerList
+const playersList = {
+  player: [
+    {
+      firstName: "Stephen",
+      lastName: "Curry",
+      age: "31",
+      position: "Point Guard",
+      status: "Injured",
+    },
+    {
+      firstName: "Giannis",
+      lastName: "Antetokounmpo",
+      age: "24",
+      position: "Small Forward",
+      status: "Out",
+    },
+  ],
+};
+
 const PlayerCard = (props) => {
-  const [firstName, setName] = useState("Steph");
+  const [firstName, setName] = useState("Stephen");
   const [lastName, setLastName] = useState("Curry");
   const [age, setAge] = useState({
     ageCount: 31,
@@ -13,6 +33,7 @@ const PlayerCard = (props) => {
     });
   };
   const [position, setPosition] = useState("Point Guard");
+  const [status, setStatus] = useState("Healthy");
 
   // useEffect(() => {
   //   document.title = name + " " + lastName;
@@ -39,25 +60,21 @@ const PlayerCard = (props) => {
     setPosition(e.target.value);
   }
 
+  function changeStatus(e) {
+    setStatus(e.target.value);
+  }
+
   return (
     <section>
-      <Row label="Name">
-        <input value={firstName} onChange={handleNameChange} />
-      </Row>
-      <Row label="LastName">
-        <input value={lastName} onChange={handleLastNameChange} />
-      </Row>
-      <Row label="Age">
-        <input value={age.ageCount} />
-      </Row>
+      <Row label="Name">{firstName}</Row>
+      <Row label="LastName">{lastName} </Row>
+      <Row label="Age">Age: {age.ageCount} </Row>
       <Row label="Position">
-        <input value={position} onChange={handlePositionChange} />
+        Position: <input value={position} onChange={handlePositionChange} />
       </Row>
-      <Row>
-        <button onClick={ageHandler}>
-          Player turned {age.ageCount} today!
-        </button>
-      </Row>
+
+      <Row label="Status">🏀 {status}</Row>
+      <button onClick={ageHandler}>Click on Birthday!</button>
       {/* <Row label="Language">{locale}</Row>
       <Row label="Width">{width}</Row> */}
     </section>
