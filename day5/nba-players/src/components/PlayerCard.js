@@ -1,5 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row } from "reactstrap";
+
+const Product = (props) => {
+  const [soldCount, setSoldCount] = useState(0);
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    fetchProductData();
+  }, []);
+
+  if (product == null) {
+    return (
+      <div>
+        <img height />
+      </div>
+    );
+  }
+
+  const fetchProductData = () => {
+    setTimeout(() => {
+      setProduct({
+        name: "Lebron",
+      });
+    }, 2000);
+  };
+
+  const buy = (event) => {
+    console.log(`Bought ${product.name}`);
+    setProduct({ ...product, soldCount: product.soldCount + 1 });
+  };
+
+  return (
+    <div>
+      <h2>Sold: {soldCount}</h2>
+      <button
+        onClick={(buy) => {
+          setSoldCount(soldCount + 1);
+        }}
+      >
+        Buy Now!
+      </button>
+    </div>
+  );
+};
+// export default Product;
 
 // Mock API Response for playerList
 // const playersList = {
