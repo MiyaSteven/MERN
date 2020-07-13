@@ -5,6 +5,14 @@ import PlayerCard from "./components/PlayerCard";
 function App() {
   return (
     <div>
+      <Product />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
       <PlayerCard
         firstName={" "}
         lastName={" "}
