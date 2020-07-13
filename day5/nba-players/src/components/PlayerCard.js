@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import { Row } from "reactstrap";
 
 // Mock API Response for playerList
-const playersList = {
-  player: [
-    {
-      firstName: "Stephen",
-      lastName: "Curry",
-      age: "31",
-      position: "Point Guard",
-      status: "Injured",
-    },
-    {
-      firstName: "Giannis",
-      lastName: "Antetokounmpo",
-      age: "24",
-      position: "Small Forward",
-      status: "Out",
-    },
-  ],
-};
+// const playersList = {
+//   player: [
+//     {
+//       firstName: "Stephen",
+//       lastName: "Curry",
+//       age: "31",
+//       position: "Point Guard",
+//       status: "Injured",
+//     },
+//     {
+//       firstName: "Giannis",
+//       lastName: "Antetokounmpo",
+//       age: "24",
+//       position: "Small Forward",
+//       status: "Out",
+//     },
+//   ],
+// };
 
 const PlayerCard = (props) => {
   const [firstName, setName] = useState("Stephen");
