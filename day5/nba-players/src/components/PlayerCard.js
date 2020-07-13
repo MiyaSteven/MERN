@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { Row } from "reactstrap";
 
-export default function PlayerCard(props) {
+const PlayerCard = (props) => {
   const [firstName, setName] = useState("Steph");
   const [lastName, setLastName] = useState("Curry");
-  let [age, setAge] = useState(props.age);
+  const [age, setAge] = useState({
+    ageCount: 31,
+  });
+  const ageHandler = (e) => {
+    console.log(age);
+    setAge({
+      ageCount: age.ageCount + 1,
+    });
+  };
   const [position, setPosition] = useState("Point Guard");
 
   // useEffect(() => {
@@ -47,14 +55,14 @@ export default function PlayerCard(props) {
         <input value={position} onChange={handlePositionChange} />
       </Row>
       <Row>
-        <button
-          onClick={(event) => {
-            setAge(age + 1);
-          }}
-        ></button>
+        <button onClick={ageHandler}>
+          Player turned {age.ageCount} today!
+        </button>
       </Row>
       {/* <Row label="Language">{locale}</Row>
       <Row label="Width">{width}</Row> */}
     </section>
   );
-}
+};
+
+export default PlayerCard;
