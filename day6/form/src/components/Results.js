@@ -1,7 +1,14 @@
 import React from "react";
 
 const Results = (props) => {
-  const { firstName, lastName, email, password, confirmPassword } = props.data;
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+    hasBeenSubmitted,
+  } = props.data;
   return (
     <div>
       <h2>Results</h2>
@@ -10,6 +17,7 @@ const Results = (props) => {
       <p>Email: {email}</p>
       <p>Password: {password}</p>
       <p>Confirm Password: {confirmPassword}</p>
+      <p>Submitted: {hasBeenSubmitted}</p>
     </div>
   );
 };

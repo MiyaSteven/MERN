@@ -10,8 +10,8 @@ function App() {
     email: "",
     password: "",
     confirmPassword: "",
+    hasBeenSubmitted: false,
   });
-
   return (
     <div className="App">
       <Form inputs={state} setInputs={setState} />
