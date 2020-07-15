@@ -3,8 +3,8 @@ import React from "react";
 const Loading = (props) => {
   return (
     <img
-      src="https://media2.giphy.com/media/1zKRm6TxcgwnBxE295/giphy.gif"
-      alt="My Boi, Elon"
+      src="https://media.giphy.com/media/yhfTY8JL1wIAE/giphy.gif"
+      alt="My Boi, CharChar"
     />
   );
 };
