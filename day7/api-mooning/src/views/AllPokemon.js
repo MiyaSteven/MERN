@@ -33,13 +33,15 @@ const AllPokemon = (props) => {
       {allPokemon.map((pokemon) => {
         return (
           <div key={pokemon.name}>
-            <h2>
-              Pokemon:{" "}
-              <Link to={"/allPokemon/" + pokemon.id}>{pokemon.name}</Link>
-            </h2>
-            <p>
-              <img src={pokemon.url}></img>
-            </p>
+            <ul>
+              <li
+                style={{
+                  textAlign: "left",
+                }}
+              >
+                <Link to={"/allPokemon/" + pokemon.id}>{pokemon.name}</Link>
+              </li>
+            </ul>
           </div>
         );
       })}
