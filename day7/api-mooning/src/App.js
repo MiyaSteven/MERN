@@ -12,14 +12,14 @@ function App() {
   return (
     <div className="App">
       <Link to="/">Homepage</Link> | <Link to="/secondary">Secondary</Link> |{" "}
-      <Link to="/allPokemon">All Pokemon:</Link>
+      <Link to="/allPokemon">All Pokemon:</Link> |
       <hr />
       <Router>
         {/* path is the URL to this view (component that represents a page) */}
         <Homepage path="/" />
         <Secondary path="/Secondary" />
         <AllPokemon path="/allPokemon" />
-        <Pokemon path="allPokemon/:id" />
+        <Pokemon path="/allPokemon/:id" />
         <Redirect from="/home" to="/" noThrow="true" />
       </Router>
     </div>
