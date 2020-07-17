@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "@reach/router";
-
 import Loading from "../components/Loading";
 
 const AllPokemon = (props) => {
@@ -22,9 +21,9 @@ const AllPokemon = (props) => {
       });
   }
 
-  // if (allPokemon === []) {
-  //   return <Loading />;
-  // }
+  if (allPokemon === []) {
+    return <Loading />;
+  }
 
   return (
     <div>

@@ -4,12 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `git clone https://github.com/MiyaSteven/MERN.git`
-
-### `cd MERN/day7/api-mooning`
-
-### `npm install`
-
 ### `npm start`
 
 Runs the app in the development mode.<br />
