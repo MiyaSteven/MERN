@@ -1,8 +1,5 @@
-const port = 8000;
 const express = require("express");
-const cors = require("cors");
-
-require("./config/mongoose.config");
+const faker = require("faker");
 
 const app = express();
 
@@ -12,6 +9,6 @@ app.get("/", (req, res) => {
   res.json({ hello: "Hello from Express" });
 });
 
-app.listen(port, () => {
+app.listen(8000, () => {
   console.log(`Listening on port ${port} for requests to respond to`);
 });
