@@ -1,4 +1,5 @@
 const { Person } = require("../models/person.model");
+const { response } = require("express");
 
 module.exports.index = (request, response) => {
   response.json({
@@ -16,4 +17,16 @@ module.exports.createPerson = (request, response) => {
   })
     .then((person) => response.json(person))
     .catch((err) => response.json(err));
+};
+
+module.exports.getAllPeople = (req, res) => {
+  Person.find({})
+    .then((persons) => res.json(persons))
+    .catch((err) => res.json(err));
+};
+
+module.exports.getPerson = (req, res) => {
+  Person.find({ _id: req.params.id })
+    .then((person) => res.json(person))
+    .catch((err) => res.json(err));
 };
