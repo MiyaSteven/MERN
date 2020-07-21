@@ -13,6 +13,7 @@ module.exports.createPerson = (request, response) => {
   Person.create({
     firstName,
     lastName,
+    price,
     description,
   })
     .then((person) => response.json(person))
