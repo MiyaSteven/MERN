@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
-export default (props) => {
+function People(props) {
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    if (props.people === []) {
+      return <Loading />;
+    }
+  }, []);
+
   return (
     <div>
-      {props.people.map((person, i) => {
+      <hr />
+      All People:
+      {people.map((person, i) => {
         return (
-          <p key={i}>
-            {person.lastName}, {person.firstName}
-          </p>
+          <button key={i}>
+            {person.firstName}, {person.lastName},
+          </button>
         );
       })}
     </div>
   );
-};
+}
+
+export default People;

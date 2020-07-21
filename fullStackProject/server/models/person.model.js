@@ -4,6 +4,7 @@ const PersonSchema = new mongoose.Schema(
   {
     firstName: { type: String },
     lastName: { type: String },
+    price: { type: Number },
     description: { type: String },
   },
   { timestamps: true }
