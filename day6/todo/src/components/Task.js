@@ -31,3 +31,5 @@ const Task = (props) => {
 };
 
 export default Task;
+
+// todo: reset input | textbox after adding task to list
