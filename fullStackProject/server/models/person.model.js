@@ -2,12 +2,13 @@ const mongoose = require("mongoose");
 
 const PersonSchema = new mongoose.Schema(
   {
-    firstName: { type: String },
-    lastName: { type: String },
-    price: { type: Number },
-    description: { type: String },
+    name: { type: String },
+    position: { type: String },
+    imgUrl: { type: String },
   },
   { timestamps: true }
 );
 
-module.exports.Person = mongoose.model("Person", PersonSchema);
+const Person = mongoose.model("Person", PersonSchema);
+
+module.exports = Person;
