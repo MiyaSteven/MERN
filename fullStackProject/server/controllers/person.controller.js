@@ -1,9 +1,7 @@
 // contains the functions that will be executed when the corresponding route URL is visited
-const { Person } = require("../models/person.model");
+const Person = require("../models/person.model");
 
 module.exports = {
-  // long-form key: value
-  //               (request, response)
   createPerson: function (req, res) {
     Person.create(req.body)
       // first param of callback passed to .then will be the newly created document from the database
@@ -28,7 +26,7 @@ module.exports = {
 
   getPerson(req, res) {
     // City.find({ _id: req.params.id })
-    Person.findById(req.params.id)
+    Person.findById({ _id: req.params.id })
       .then((person) => {
         res.json(person);
       })

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 import { Link, navigate } from "@reach/router";
 
 const People = (props) => {
@@ -15,54 +16,65 @@ const People = (props) => {
         .catch((err) => {
           console.log(err);
         });
-    }, []);
+    }, 4000);
+  });
 
-    const handleDelete = (delId) => {
-      axios
-        .delete("http://localhost:8000/api/people/" + delId)
-        .then((res) => {
-          const filteredPeople = people.filter((person) => {
-            // return true when it's not the delId that needs to be deleted, true means .filter will keep it
-            return person._id !== delId;
-          });
+  if (people === null) {
+    return <Loading />;
+  }
 
-          // must pass in a NEW array for it to update, .filter returns a new array
-          setPeople(filteredPeople);
-        })
-        .catch((err) => {
-          console.log(err);
+  const handleDelete = (delId) => {
+    axios
+      .delete("http://localhost:8000/api/people/" + delId)
+      .then((res) => {
+        const filteredPeople = people.filter((person) => {
+          // return true when it's not the delId that needs to be deleted, true means .filter will keep it
+          return person._id !== delId;
         });
-    };
-    if (people === null) {
-      return (
-        <img
-          src="https://www.demilked.com/magazine/wp-content/uploads/2016/06/gif-animations-replace-loading-screen-14.gif"
-          alt="Loading"
-        />
-      );
-    }
-    return (
-      <div>
-        <h2>All People</h2>
+
+        // must pass in a NEW array for it to update, .filter returns a new array
+        setPeople(filteredPeople);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  return (
+    <div>
+      <h2>All People</h2>
+      <div
+        style={{
+          display: "inline-block",
+          border: "1px solid black",
+          width: "100%",
+        }}
+      >
         {people.map((person) => {
           return (
-            <div key={person._id}>
-              <h2>
-                <Link to={`/people/${person._id}`}>{person.name}</Link>
-              </h2>
-              <p>Position: {person.position}</p>
-              <img
+            <table key={person._id}>
+              <tr>
+                <th>
+                  <Link to={"/people/" + person._id}>{person.name}</Link>
+                </th>
+              </tr>
+              <tr>
+                <th>Position: {person.position}</th>
+              </tr>
+              <video
+                controls
+                autoplay
                 style={{
                   paddingBottom: 20,
                   width: "20%",
                 }}
                 src={person.imgUrl}
+                type="video/mp4"
                 alt={`${person.name} Person`}
               />
-
-              <div>
+              <tf>
                 <button
-                  onClick={(event) => {
+                  onClick={(e) => {
                     handleDelete(person._id);
                   }}
                 >
@@ -70,20 +82,20 @@ const People = (props) => {
                 </button>{" "}
                 |{" "}
                 <button
-                  onClick={(event) => {
+                  onClick={(e) => {
                     navigate(`/people/${person._id}/edit`);
                   }}
                 >
                   Edit
                 </button>
-              </div>
+              </tf>
               <hr />
-            </div>
+            </table>
           );
         })}
       </div>
-    );
-  });
+    </div>
+  );
 };
 
 export default People;

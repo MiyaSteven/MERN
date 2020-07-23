@@ -5,11 +5,11 @@ import { navigate } from "@reach/router";
 import Loading from "./Loading";
 
 const Person = (props) => {
-  const [person, setPerson] = useState(null);
+  const [person, setPerson] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/people/" + props.id)
+      .get("http://localhost:8000/api/people/" + props._id) // concatinate props.id when need to grab person
       .then((res) => {
         setPerson(res.data);
       })

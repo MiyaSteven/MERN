@@ -11,7 +11,7 @@ const EditPerson = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/people/" + props.id)
+      .get("http://localhost:8000/api/people/")
       .then((res) => {
         // destructure if you want to avoid constantly typing res.data
         // const {name, population, imgUrl } = res.data;
