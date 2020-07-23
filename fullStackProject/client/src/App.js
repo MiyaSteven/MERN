@@ -1,7 +1,7 @@
 import React from "react";
-import "./App.css";
 import { Link, Redirect, Router } from "@reach/router";
 
+import "./App.css";
 import Loading from "./views/Loading";
 import NewPerson from "./views/NewPerson";
 import People from "./views/People";
@@ -17,8 +17,8 @@ function App() {
       <Router>
         <Redirect from="/" to="/people" noThrow="true" />
         <Loading default />
-        <NewPerson path="/people/new" />
         <People path="/people/" />
+        <NewPerson path="/people/new" />
         <Person path="/people/:id" />
         <EditPerson path="/people/:id/edit" />
       </Router>

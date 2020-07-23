@@ -15,7 +15,7 @@ app.use(cors());
 // routesFunc(app);
 
 // shorthand, import the function from routes.js and then immediately execute it
-require("./routes/people.routes")(app);
+require("./routes/person.routes")(app);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port} for REQuests to RESpond to.`);

@@ -17,6 +17,7 @@ const NewPerson = (props) => {
       position,
       imgUrl,
     };
+
     axios
       .post("http://localhost:8000/api/people", newPerson)
       .then((res) => {
@@ -60,7 +61,7 @@ const NewPerson = (props) => {
             onChange={(event) => {
               setPosition(event.target.value);
             }}
-            type="number"
+            type="text"
             value={position}
           />
           {errors && (
@@ -91,4 +92,5 @@ const NewPerson = (props) => {
     </div>
   );
 };
+
 export default NewPerson;
