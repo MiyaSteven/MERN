@@ -50,20 +50,15 @@ const People = (props) => {
           width: "100%",
         }}
       >
-        {people.map((person) => {
+        {people.map((person, i) => {
           return (
-            <table key={person._id}>
-              <tr>
-                <th>
-                  <Link to={"/people/" + person._id}>{person.name}</Link>
-                </th>
-              </tr>
-              <tr>
-                <th>Position: {person.position}</th>
-              </tr>
+            <table key={i}>
+              <td>
+                <Link to={"/people/" + person._id}>{person.name}</Link>
+              </td>
+              <td>Position: {person.position}</td>
               <video
                 controls
-                autoplay
                 style={{
                   paddingBottom: 20,
                   width: "20%",
@@ -72,6 +67,7 @@ const People = (props) => {
                 type="video/mp4"
                 alt={`${person.name} Person`}
               />
+              <audio src="/static/sound/moment/01-COMMON_stem2_rugrat.mp3"></audio>
               <tf>
                 <button
                   onClick={(e) => {
@@ -80,7 +76,7 @@ const People = (props) => {
                 >
                   Delete
                 </button>{" "}
-                |{" "}
+                {/* <DeletePerson />|{" "} */}
                 <button
                   onClick={(e) => {
                     navigate(`/people/${person._id}/edit`);

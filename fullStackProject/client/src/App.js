@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Redirect, Router } from "@reach/router";
-
 import "./App.css";
 import Loading from "./views/Loading";
 import NewPerson from "./views/NewPerson";
