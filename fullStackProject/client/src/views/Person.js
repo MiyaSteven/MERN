@@ -5,18 +5,19 @@ import { navigate } from "@reach/router";
 import Loading from "./Loading";
 
 const Person = (props) => {
-  const [person, setPerson] = useState([]);
+  const [person, setPerson] = useState(null);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/people/" + props._id) // concatinate props.id when need to grab person
+      .get("http://localhost:8000/api/people/" + props.id)
       .then((res) => {
         setPerson(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [props.id]);
 
   if (person === null) {
     return <Loading />;
@@ -25,7 +26,7 @@ const Person = (props) => {
   return (
     <div key={person._id}>
       <h2>{person.name}</h2>
-      <p>Population: {person.population}</p>
+      <p>Position: {person.position}</p>
       <img
         style={{
           paddingBottom: 20,

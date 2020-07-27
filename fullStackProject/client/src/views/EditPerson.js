@@ -69,6 +69,7 @@ const EditPerson = (props) => {
           {errors && (
             <span style={{ color: "red" }}>
               {/* ?. is called optional chaining, NEW feature in JS */}
+              {/*does it look like this? errors optional . name obj optional . properties obj optional . message obj*/}
               {errors?.name?.properties?.message}
             </span>
           )}
